@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev": "bun --bun vite",
     "build": "bun --bun vite build",
@@ -10,7 +13,7 @@
     "preview": "bun --bun vite preview"
   },
   "dependencies": {
-    "@unikit-bridge/ui": "^0.3.0",
+    "@unikit-bridge/ui": "^0.4.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.71.0",

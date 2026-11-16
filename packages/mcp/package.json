@@ -1,0 +1,52 @@
+{
+  "name": "@unikit-bridge/mcp",
+  "version": "0.1.0",
+  "description": "MCP server for the unikit-bridge family — search, inspect, and install UniKit UI (web + React Native) components and read per-product docs. Bundles the registry snapshot, zero network at runtime.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "unikit-mcp": "dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loopy-lim/unikit.git",
+    "directory": "packages/mcp"
+  },
+  "keywords": [
+    "mcp",
+    "unikit",
+    "shadcn",
+    "react-native",
+    "ui-components",
+    "claude",
+    "agent"
+  ],
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "sync:data": "bun scripts/sync-data.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "bun run sync:data && bun build src/index.ts --target=node --outfile=dist/index.js && chmod +x dist/index.js",
+    "smoke": "bun run build && bun scripts/smoke.ts",
+    "prepack": "bun run build",
+    "prepublishOnly": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "shadcn": "^4.23.0",
+    "typescript": "~5.9.0"
+  }
+}
