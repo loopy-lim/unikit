@@ -14,8 +14,8 @@ export type WorkflowRef = {
   disabled?: boolean;
 };
 
-/** 패키지 — url이 없으면 아직 게시 전(드러냄 칩으로 표시). 2026-11-14 기준
- * npm: ui·rustra 게시됨, scriptca 미게시. crates.io unikit-bridge 미게시. */
+/** 패키지 — url이 없으면 아직 게시 전(드러냄 칩으로 표시). 2026-11-16 기준
+ * npm: ui(0.4.0)·rustra(0.13.0) 게시됨, scriptca·mcp 미게시. crates.io unikit-bridge 미게시. */
 export type PackageRef = {
   name: string;
   url?: string;
@@ -46,7 +46,7 @@ export const PROJECTS: Project[] = [
     name: 'unikit-ui',
     tagline: '하나의 컴포넌트 소스로 웹과 React Native 동시 렌더',
     body:
-      'shadcn new-york-v4 스타일 UI 킷. 같은 className이 웹에서는 Tailwind v4 DOM으로, 네이티브에서는 uniwind 뷰로 렌더됩니다. 61개 컴포넌트와 테마 프리셋을 레지스트리로 배포합니다.',
+      'shadcn new-york-v4 스타일 UI 킷. 같은 className이 웹에서는 Tailwind v4 DOM으로, 네이티브에서는 uniwind 뷰로 렌더됩니다. 62개 컴포넌트와 테마 프리셋을 레지스트리로 배포합니다.',
     repo: 'loopy-lim/unikit-ui',
     site: 'https://ui.ll3.kr',
     packages: [{ name: '@unikit-bridge/ui', url: npmUrl('@unikit-bridge/ui'), registry: 'npm' }],
