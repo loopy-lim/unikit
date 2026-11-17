@@ -1,6 +1,6 @@
 {
   "name": "@unikit-bridge/mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for the unikit-bridge family — search, inspect, and install UniKit UI (web + React Native) components and read per-product docs. Bundles the registry snapshot, zero network at runtime.",
   "license": "MIT",
   "type": "module",

@@ -14,8 +14,8 @@ export type WorkflowRef = {
   disabled?: boolean;
 };
 
-/** 패키지 — url이 없으면 아직 게시 전(드러냄 칩으로 표시). 2026-11-16 기준
- * npm: ui(0.4.0)·rustra(0.13.0) 게시됨, scriptca·mcp 미게시. crates.io unikit-bridge 미게시. */
+/** 패키지 — url이 없으면 아직 게시 전(드러냄 칩으로 표시). 2026-11-17 기준
+ * npm: ui(0.4.1)·rustra(0.13.0)·mcp(0.1.1) 게시됨, scriptca 미게시. crates.io unikit-bridge 미게시. */
 export type PackageRef = {
   name: string;
   url?: string;
