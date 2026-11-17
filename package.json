@@ -13,7 +13,7 @@
     "preview": "bun --bun vite preview"
   },
   "dependencies": {
-    "@unikit-bridge/ui": "^0.4.0",
+    "@unikit-bridge/ui": "^0.4.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.71.0",

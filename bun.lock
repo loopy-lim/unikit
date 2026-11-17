@@ -5,7 +5,7 @@
     "": {
       "name": "unikit-site",
       "dependencies": {
-        "@unikit-bridge/ui": "^0.4.0",
+        "@unikit-bridge/ui": "^0.4.1",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "lucide-react": "^1.71.0",
@@ -29,7 +29,7 @@
     },
     "packages/mcp": {
       "name": "@unikit-bridge/mcp",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "bin": {
         "unikit-mcp": "dist/index.js",
       },
@@ -303,7 +303,7 @@
 
     "@unikit-bridge/mcp": ["@unikit-bridge/mcp@workspace:packages/mcp"],
 
-    "@unikit-bridge/ui": ["@unikit-bridge/ui@0.4.0", "", { "peerDependencies": { "@tiptap/extensions": "^3.0.0", "@tiptap/markdown": "^3.0.0", "@tiptap/pm": "^3.0.0", "@tiptap/react": "^3.0.0", "@tiptap/starter-kit": "^3.0.0", "class-variance-authority": "^0.7.0", "clsx": "^2.1.0", "lucide-react": "^1.71.0", "lucide-react-native": "^1.71.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0", "react-hook-form": "^7.0.0", "react-native": ">=0.81.0", "react-native-svg": ">=15.0.0", "react-native-webview": "^14.0.0", "tailwind-merge": "^3.0.0", "uniwind": ">=1.13.0" }, "optionalPeers": ["@tiptap/extensions", "@tiptap/markdown", "@tiptap/pm", "@tiptap/react", "@tiptap/starter-kit", "lucide-react", "lucide-react-native", "react-dom", "react-hook-form", "react-native", "react-native-svg", "react-native-webview", "uniwind"] }, "sha512-lF4LY0tyeT/Jgw0ULn5Fp+j8rQnCAfx1KSCXGmzTDUHG24R7pPfsrH1I5q67SiPHJRkRuq+oFCQdzkrQT7zBsQ=="],
+    "@unikit-bridge/ui": ["@unikit-bridge/ui@0.4.1", "", { "peerDependencies": { "@tiptap/extensions": "^3.0.0", "@tiptap/markdown": "^3.0.0", "@tiptap/pm": "^3.0.0", "@tiptap/react": "^3.0.0", "@tiptap/starter-kit": "^3.0.0", "class-variance-authority": "^0.7.0", "clsx": "^2.1.0", "lucide-react": "^1.71.0", "lucide-react-native": "^1.71.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0", "react-hook-form": "^7.0.0", "react-native": ">=0.81.0", "react-native-svg": ">=15.0.0", "react-native-webview": "^14.0.0", "tailwind-merge": "^3.0.0", "uniwind": ">=1.13.0" }, "optionalPeers": ["@tiptap/extensions", "@tiptap/markdown", "@tiptap/pm", "@tiptap/react", "@tiptap/starter-kit", "lucide-react", "lucide-react-native", "react-dom", "react-hook-form", "react-native", "react-native-svg", "react-native-webview", "uniwind"] }, "sha512-FiDewQPX3Xxk4KaStRaGi3Atvi9y0/Wk0kV5kqrwT0SjXiKv3e579bkhtZbtAf/csvweyakDu03mGlPZPK9+2Q=="],
 
     "@vitejs/plugin-react": ["@vitejs/plugin-react@4.7.0", "", { "dependencies": { "@babel/core": "^7.28.0", "@babel/plugin-transform-react-jsx-self": "^7.27.1", "@babel/plugin-transform-react-jsx-source": "^7.27.1", "@rolldown/pluginutils": "1.0.0-beta.27", "@types/babel__core": "^7.20.5", "react-refresh": "^0.17.0" }, "peerDependencies": { "vite": "^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0" } }, "sha512-gUu9hwfWvvEDBBmgtAowQCojwZmJ5mcLn3aufeCsitijs3+f2NsrPtlAWIR6OPiqljl96GVCUbLe0HyqIpVaoA=="],
 
