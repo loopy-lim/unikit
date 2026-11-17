@@ -140,6 +140,20 @@ async function main() {
     viewText.includes("## button") && viewText.includes("cva("),
     viewText.slice(0, 120),
   );
+  check(
+    "view_item — button 사용법 발췌(전용 섹션 전문)",
+    viewText.includes("사용법 (docs/components.md 발췌)") &&
+      viewText.includes("variant"),
+  );
+
+  const dialogView = await request("tools/call", {
+    name: "view_item",
+    arguments: { name: "dialog" },
+  });
+  check(
+    "view_item — dialog 사용법 발췌(배치 표 행)",
+    textOf(dialogView).includes("중앙 모달"),
+  );
 
   const notFound = await request("tools/call", {
     name: "view_item",
@@ -212,6 +226,33 @@ async function main() {
     "get_docs — unikit-ui llms.txt 전문",
     docsText.includes("UniKit UI") && docsText.length > 1000,
     `길이 ${docsText.length}`,
+  );
+
+  const rustraDocs = await request("tools/call", {
+    name: "get_docs",
+    arguments: { product: "rustra" },
+  });
+  const rustraText = textOf(rustraDocs);
+  check(
+    "get_docs — rustra llms.txt 전문",
+    rustraText.includes("# rustra") && rustraText.length > 1000,
+    `길이 ${rustraText.length}`,
+  );
+
+  const scriptcaDocs = await request("tools/call", {
+    name: "get_docs",
+    arguments: { product: "scriptca" },
+  });
+  const scriptcaText = textOf(scriptcaDocs);
+  check(
+    "get_docs — scriptca llms.txt 전문",
+    scriptcaText.includes("# scriptca") && scriptcaText.length > 1000,
+    `길이 ${scriptcaText.length}`,
+  );
+
+  check(
+    "get_docs — 제품군 개요에 문서 있음 표기",
+    !overviewText.includes("llms.txt 준비 중"),
   );
 
   const noProduct = await request("tools/call", {

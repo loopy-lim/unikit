@@ -27,6 +27,7 @@ import {
   PRODUCTS_JSON,
   SERVER_VERSION,
   SITE_ORIGIN,
+  USAGE_JSON,
 } from "./data";
 
 type CatalogItem = {
@@ -55,6 +56,8 @@ type RegistryItem = CatalogItem & {
 const catalog = JSON.parse(CATALOG_JSON) as { items?: CatalogItem[] };
 const catalogItems: CatalogItem[] = catalog.items ?? [];
 const items = JSON.parse(ITEMS_JSON) as Record<string, RegistryItem>;
+/** docs/components.md에서 뽑은 컴포넌트별 사용법 조각(이름 → 발췌) */
+const usage = JSON.parse(USAGE_JSON) as Record<string, string>;
 
 /** 제품군 카탈로그(포털 site.ts PROJECTS에서 유도) */
 type ProductInfo = {
@@ -70,7 +73,7 @@ const products = JSON.parse(PRODUCTS_JSON) as ProductInfo[];
 const productDocs = JSON.parse(DOCS_JSON) as Record<string, string>;
 
 const HINT =
-  "팁: view_item(name)으로 소스 전문, get_install_command({names:[...]})으로 설치 명령, get_docs({product:\"unikit-ui\"})로 사용 규칙 전체를 볼 수 있어요.";
+  "팁: view_item(name)으로 소스 전문·컴포넌트별 사용법, get_install_command({names:[...]})으로 설치 명령, get_docs({product:\"unikit-ui\"})로 사용 규칙 전체를 볼 수 있어요.";
 
 function itemUrl(name: string): string {
   return `${SITE_ORIGIN}/r/${name}.json`;
@@ -112,7 +115,7 @@ server.tool(
 // --- view_item ---------------------------------------------------------------
 server.tool(
   "view_item",
-  "레지스트리 아이템 하나의 전문을 돌려줍니다 — 메타데이터(의존성·파일 대상 경로), 소스 전문(files[].content), theme 아이템의 cssVars·style 아이템의 CSS까지 포함.",
+  "레지스트리 아이템 하나의 전문을 돌려줍니다 — 메타데이터(의존성·파일 대상 경로), docs/components.md에서 뽑은 그 컴포넌트의 사용법(props·예시), 소스 전문(files[].content), theme 아이템의 cssVars·style 아이템의 CSS까지 포함.",
   { name: z.string().describe("아이템 name — 예: button, dialog, overlay") },
   async ({ name }) => {
     const item = Object.hasOwn(items, name) ? items[name] : undefined;
@@ -149,6 +152,10 @@ server.tool(
       lines.push(`files: ${item.files.map((file) => file.target ?? file.path).join(", ")}`);
     }
     lines.push(`설치(소스 복사): bunx shadcn@latest add ${itemUrl(item.name)} -y`);
+    if (Object.hasOwn(usage, name)) {
+      lines.push("\n--- 사용법 (docs/components.md 발췌) ---");
+      lines.push(usage[name]);
+    }
     for (const file of item.files ?? []) {
       lines.push(`\n--- ${file.target ?? file.path} ---`);
       lines.push("```tsx");
@@ -244,7 +251,7 @@ server.tool(
 // --- get_docs ----------------------------------------------------------------
 server.tool(
   "get_docs",
-  "제품 문서(llms.txt)를 돌려줍니다. product를 생략하면 unikit-bridge 제품군 개요를, \"unikit-ui\"를 지정하면 전문(한 벌 소스 원칙, 진입점, 디자인 토큰 규칙, 주요 한계)을 돌려줍니다. 컴포넌트를 작성·수정하기 전에 읽으세요.",
+  "제품 문서(llms.txt)를 돌려줍니다. product를 생략하면 unikit-bridge 제품군 개요를, \"unikit-ui\"·\"rustra\"·\"scriptca\"를 지정하면 각 제품 전문(사용 규칙·아키텍처·주의점)을 돌려줍니다. 해당 제품 코드를 작성·수정하기 전에 읽으세요.",
   {
     product: z
       .string()
