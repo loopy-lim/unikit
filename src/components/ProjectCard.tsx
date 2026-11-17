@@ -11,8 +11,8 @@ const linkBtn =
 const pendingChip =
   'inline-flex h-8 cursor-default items-center rounded-md border border-dashed border-border px-3 text-sm text-muted-foreground';
 
-/** 제품 카드 — 이름/한줄소개/스택/링크. 사이트가 없는 프로젝트(rustra)는
- * 사이트 링크를 생략하고 siteNote로 상태를 말한다. */
+/** 제품 카드 — 이름/한줄소개/스택/링크. 사이트가 없는 프로젝트는 사이트
+ * 링크 대신 siteNote 칩으로 상태를 말한다(현재 세 제품은 모두 사이트 있음). */
 export function ProjectCard({ project, runs }: { project: Project; runs?: ProjectRunsState }) {
   const ciRun = runs?.state === 'ok' ? runs.runs.get('ci.yml') : undefined;
 
@@ -21,7 +21,7 @@ export function ProjectCard({ project, runs }: { project: Project; runs?: Projec
       <CardHeader>
         <div className="flex items-center justify-between gap-3">
           <CardTitle className="site-mono text-base font-medium">{project.name}</CardTitle>
-          <StatusChip run={ciRun} loading={runs?.state === 'loading'} />
+          <StatusChip run={ciRun} loading={runs?.state === 'loading'} error={runs?.state === 'error'} />
         </div>
         <CardDescription className="pt-1.5 text-sm leading-relaxed">{project.tagline}</CardDescription>
       </CardHeader>

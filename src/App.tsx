@@ -17,17 +17,23 @@ function SiteNav() {
           <span className="site-display text-lg font-bold tracking-tight">UniKit</span>
         </a>
         <nav className="flex items-center gap-2.5 text-sm sm:gap-3">
-          <a href="#projects" className="site-focusable text-muted-foreground transition-colors hover:text-foreground">
+          <a
+            href="#projects"
+            className="site-focusable inline-flex min-h-6 items-center text-muted-foreground transition-colors hover:text-foreground"
+          >
             제품
           </a>
-          <a href="#ci" className="site-focusable text-muted-foreground transition-colors hover:text-foreground">
+          <a
+            href="#ci"
+            className="site-focusable inline-flex min-h-6 items-center text-muted-foreground transition-colors hover:text-foreground"
+          >
             CI 상태
           </a>
           <a
             href={GITHUB_URL}
             target="_blank"
             rel="noreferrer"
-            className="site-focusable hidden text-muted-foreground transition-colors hover:text-foreground sm:inline"
+            className="site-focusable hidden text-muted-foreground transition-colors hover:text-foreground sm:inline-flex sm:min-h-6 sm:items-center"
           >
             GitHub
           </a>
@@ -159,7 +165,7 @@ function Footer() {
           <a href="https://scriptca.ll3.kr" target="_blank" rel="noreferrer" className="site-focusable transition-colors hover:text-foreground">
             scriptca.ll3.kr
           </a>
-          <a href="https://github.com/loopy-lim/unikit-bridge" target="_blank" rel="noreferrer" className="site-focusable transition-colors hover:text-foreground">
+          <a href="https://rustra.ll3.kr" target="_blank" rel="noreferrer" className="site-focusable transition-colors hover:text-foreground">
             rustra
           </a>
           <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="site-focusable transition-colors hover:text-foreground">
