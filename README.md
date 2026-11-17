@@ -22,8 +22,9 @@ grid canvas)는 apps/web·rustra 사이트를 계승한다.
 - `src/ci.ts` — GitHub Actions 라이브 상태(무인증 퍼블릭 API, sessionStorage 3분 캐시)
 - `packages/mcp/` — `@unikit-bridge/mcp`: 제품군 MCP 서버(데이터 동봉형, 런타임
   네트워크 0). 형제 레포(unikit-ui·scriptca·rustra)의 레지스트리·llms.txt와
-  `src/site.ts`를 읽어 `bun run sync:data`로 `src/data.ts`를 재생성한다 —
-  형제 체크아웃이 있는 로컬에서만 돌고, CI는 커밋된 `data.ts`만 검증한다.
+  포털 `src/site.ts`를 읽어 `packages/mcp`에서 `bun run sync:data`를 돌려
+  `packages/mcp/src/data.ts`를 재생성한다 — 형제 체크아웃이 있는 로컬에서만
+  돌고, CI는 커밋된 `data.ts`만 검증한다.
 - `hub/` — unikit.ll3.kr 진입 워커(`unikit-hub`). dist/를 Workers Static
   Assets로 직접 서빙하고, 옛 허브의 단축 경로(`/ui`, `/scriptca`, `/rustra`
   302)를 `hub/src/index.js`가 처리한다. Pages 프로젝트는 쓰지 않는다.

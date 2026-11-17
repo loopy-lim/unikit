@@ -25,7 +25,7 @@ Other MCP clients: run `npx -y @unikit-bridge/mcp` as a stdio server.
 
 ## Regenerate bundled data
 
-The sync reads sibling checkouts, so run it on a machine with the family repos side by side (`.../ll3/{unikit,unikit-ui,scriptca,rustra}`). CI never regenerates — it typechecks the committed `src/data.ts` only:
+The sync reads sibling checkouts, so run it on a machine with the family repos side by side (`.../ll3/{unikit,unikit-ui,scriptca,rustra}`). CI never regenerates — it verifies the committed `src/data.ts` only (typecheck + smoke test against the bundled data):
 
 ```sh
 cd packages/mcp && bun run sync:data

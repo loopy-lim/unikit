@@ -33,6 +33,16 @@ jobs:
       - name: Typecheck
         run: bun run typecheck
 
+      # 커밋된 data.ts만으로 MCP 서버를 검증한다(형제 레포 필요한 sync:data는
+      # CI에서 돌리지 않음) — 번들→smoke는 동봉 데이터 무결성까지 확인.
+      - name: Typecheck MCP package
+        run: bun run typecheck
+        working-directory: packages/mcp
+
+      - name: Smoke-test MCP server (committed data)
+        run: bun run smoke
+        working-directory: packages/mcp
+
       - name: Build static site
         run: bun run build
 

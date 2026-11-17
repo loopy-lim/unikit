@@ -59,7 +59,7 @@ function request(method: string, params?: unknown): Promise<Response> {
         pending.delete(id);
         reject(new Error(`${method} 응답 시간 초과`));
       }
-    }, 10_000).unref?.();
+    }, 10_000).unref();
   });
 }
 
@@ -91,7 +91,7 @@ async function main() {
     proc.kill();
     process.exit(1);
   }, 30_000);
-  timer.unref?.();
+  timer.unref();
 
   // bin 배포 형태 — shebang이 없으면 npx가 셸 폴백으로 실패해요(사이클 100 리뷰).
   const firstLine = readFileSync("dist/index.js", "utf8").split("\n", 1)[0];

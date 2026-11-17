@@ -35,8 +35,9 @@
   "scripts": {
     "sync:data": "bun scripts/sync-data.ts",
     "typecheck": "tsc --noEmit",
-    "build": "bun run sync:data && bun build src/index.ts --target=node --outfile=dist/index.js && chmod +x dist/index.js",
-    "smoke": "bun run build && bun scripts/smoke.ts",
+    "bundle": "bun build src/index.ts --target=node --outfile=dist/index.js && chmod +x dist/index.js",
+    "build": "bun run sync:data && bun run bundle",
+    "smoke": "bun run bundle && bun scripts/smoke.ts",
     "prepack": "bun run build",
     "prepublishOnly": "tsc --noEmit"
   },
